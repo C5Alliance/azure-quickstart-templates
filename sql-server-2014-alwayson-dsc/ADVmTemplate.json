@@ -119,7 +119,8 @@
       "metadata": {
         "description": "The size of the AD VMs Created"
       },
-      "defaultValue": "Standard_A2"
+      "defaultValue": "Standard_DS1"
+
     },
     "dnsPrefix": {
       "type": "string",
