@@ -222,6 +222,7 @@
           "location": { "value": "[parameters('location')]" },
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
+          "dnsPrefix": { "value": "[parameters('dnsPrefix')]" },
           "storageAccount": { "value": "[variables('adStorageName')]" },
           "subnetUri": { "value": "[variables('staticSubnetRef')]" },
           "primaryAdIpAddress": { "value": "[parameters('primaryAdIpAddress')]" },
