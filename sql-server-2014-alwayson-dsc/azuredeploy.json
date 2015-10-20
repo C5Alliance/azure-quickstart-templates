@@ -176,7 +176,7 @@
     "deploySecondaryAdName": "deploySecondaryAdName",
     "deploySecondaryAdNameId": "[concat('Microsoft.Resources/deployments/', variables('deploySecondaryAdName'))]",
 
-    "adVmNamePrefix": "[concat(parameters('vmNamePrefix'),'-ADCP10')]",
+    "adVmNamePrefix": "[concat(parameters('vmNamePrefix'),'-adcp10')]",
     "adPDCVMName": "[concat(variables('adVmNamePrefix'),'1')]",
     "adBDCVMName": "[concat(variables('adVmNamePrefix'),'2')]",
     "vnetwithDNSTemplateUri": "[concat(parameters('assetLocation'),'/vnet-with-dns-server.json')]",

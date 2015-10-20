@@ -57,7 +57,7 @@
       "metadata": {
         "description": "The location of resources that the script is dependent on such as linked templates and DSC modules"
       },
-      "defaultValue": "http://honcaotemplate.blob.core.windows.net/templates"
+      "defaultValue": "https://raw.githubusercontent.com/C5Alliance/azure-quickstart-templates/master/sql-server-2014-alwayson-dsc"
     }
   },
   "variables": {
