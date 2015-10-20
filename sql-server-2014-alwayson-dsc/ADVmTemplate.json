@@ -176,7 +176,7 @@
           "domainNameLabel": "[parameters('dnsPrefix')]"
         }
       }
-    }
+    },
    {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[parameters('availabilitySetName')]",
