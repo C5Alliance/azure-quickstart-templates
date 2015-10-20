@@ -8,14 +8,14 @@
       "metadata": {
         "description": "The Prefix of the VM Name"
       },
-      "defaultValue": "ADVM"
+      "defaultValue": "AZWE"
     },
     "availabilitySetName": {
       "type": "string",
       "metadata": {
         "description": "The Available Set Name"
       },
-      "defaultValue": "ADAvailableSet"
+      "defaultValue": "AZWEADAvailableSet"
     },
 
     "windowsImagePublisher": {
@@ -73,7 +73,7 @@
       "metadata": {
         "description": "The name of the Administrator of the new VMs and Domain"
       },
-      "defaultValue": "sqlAdministrator"
+      "defaultValue": "azureadmin"
     },
     "adminPassword": {
       "type": "securestring",
@@ -85,19 +85,10 @@
     "location": {
       "type": "string",
       "allowedValues": [
-        "West US",
-        "East US",
-        "East US 2",
-        "Central US",
-        "South Central US",
-        "North Central US",
+
         "North Europe",
-        "West Europe",
-        "East Asia",
-        "Southeast Asia",
-        "Japan East",
-        "Japan West",
-        "Southeast Asia"
+        "West Europe"
+
       ],
       "metadata": {
         "description": "The region to deploy the resources into"
@@ -107,6 +98,7 @@
     "vmSize": {
       "type": "string",
       "allowedValues": [
+        "Standard_A2",
         "Standard_D1",
         "Standard_DS1",
         "Standard_D2",
@@ -127,7 +119,7 @@
       "metadata": {
         "description": "The size of the AD VMs Created"
       },
-      "defaultValue": "Standard_D1"
+      "defaultValue": "Standard_A2"
     },
     "dnsPrefix": {
       "type": "string",
@@ -158,18 +150,8 @@
   },
   "variables": {
     "windowsDiskSize": 128,
-    "publicLBName": "ADPublicLoadBalancer",
-    "publicIPAddressName": "[concat(parameters('availabilitySetName'), 'PublicIp')]",
-    "lbFE": "ADLBFE",
-    "lbBE": "ADLBBE",
-    "rpdNAT": "ADRDPNAT",
-    "publiclbID": "[resourceId('Microsoft.Network/loadBalancers',variables('publicLBName'))]",
-    "publiclbFEConfigID": "[concat(variables('publiclbID'),'/frontendIPConfigurations/',variables('lbFE'))]",
-    "rdpPort": 3389,
-    "publicBEAddressPoolID": "[concat(variables('publiclbID'),'/backendAddressPools/',variables('lbBE'))]",
-    "adRDPNATRuleID": "[concat(variables('publiclbID'),'/inboundNatRules/',variables('rpdNAT'))]",
-    "adDNicName": "ADMachine-Nic-",
-    "vmContainerName": "vhds"
+    "adDNicName": "AZWE-ADNic-",
+    "vmContainerName": "AZWE-VMContainer"
   },
   "resources": [
     {
@@ -181,71 +163,16 @@
         "accountType": "[parameters('storageAccountType')]"
       }
     },
-    {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[variables('publicIPAddressName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('dnsPrefix')]"
-        }
-      }
-    },
-    {
+   {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[parameters('availabilitySetName')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[parameters('location')]"
     },
     {
-      "apiVersion": "2015-05-01-preview",
-      "name": "[variables('publiclbName')]",
-      "type": "Microsoft.Network/loadBalancers",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-      ],
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "[variables('lbFE')]",
-            "properties": {
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-              }
-            }
-          }
-        ],
-        "backendAddressPools": [
-          {
-            "name": "[variables('lbBE')]"
-          }
-        ],
-        "inboundNatRules": [
-          {
-            "name": "[variables('rpdNAT')]",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('publiclbFEConfigID')]"
-              },
-              "protocol": "tcp",
-              "frontendPort": "[variables('rdpPort')]",
-              "backendPort": 3389,
-              "enableFloatingIP": false
-            }
-          }
-        ]
-      }
-    },
-    {
       "name": "[concat(variables('adDNicName'), '0')]",
       "type": "Microsoft.Network/networkInterfaces",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/loadBalancers/',variables('publicLBName'))]"
-      ],
+      "location": "[parameters('location')]",     
       "apiVersion": "2015-05-01-preview",
       "properties": {
         "ipConfigurations": [
@@ -256,17 +183,7 @@
               "privateIPAddress": "[parameters('primaryAdIpAddress')]",
               "subnet": {
                 "id": "[parameters('subnetUri')]"
-              },
-              "loadBalancerBackendAddressPools": [
-                {
-                  "id": "[variables('publicBEAddressPoolID')]"
-                }
-              ],
-              "loadBalancerInboundNatRules": [
-                {
-                  "id": "[variables('adRDPNATRuleID')]"
-                }
-              ]
+              }
             }
           }
         ]
@@ -275,10 +192,7 @@
     {
       "name": "[concat(variables('adDNicName'), 1)]",
       "type": "Microsoft.Network/networkInterfaces",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/loadBalancers/',variables('publicLBName'))]"
-      ],
+      "location": "[parameters('location')]",      
       "apiVersion": "2015-05-01-preview",
       "properties": {
         "ipConfigurations": [
@@ -303,11 +217,10 @@
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts',parameters('storageAccount'))]",
         "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('adDNicName'), copyindex()))]",
-        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]",
-        "[resourceId('Microsoft.Network/loadBalancers',variables('publicLBName'))]"
+        "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
       ],
       "copy": {
-        "name": "ADMachineLoop",
+        "name": "AZWEADMachineLoop",
         "count": 2
       },
       "properties": {
