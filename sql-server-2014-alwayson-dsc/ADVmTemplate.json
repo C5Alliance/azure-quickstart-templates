@@ -8,7 +8,7 @@
       "metadata": {
         "description": "The Prefix of the VM Name"
       },
-      "defaultValue": "azwe"
+      "defaultValue": "azwe-adcp10"
     },
     "availabilitySetName": {
       "type": "string",
@@ -289,11 +289,11 @@
   ],
   "outputs": {
     "PrimaryAdVmName": {
-      "value": "[reference(concat(parameters('vmNamePrefix'), '0'))]",
+      "value": "[reference(concat(parameters('vmNamePrefix'), '1'))]",
       "type": "string"
     },
     "SecondaryAdVmName": {
-        "value": "[reference(concat(parameters('vmNamePrefix'), '1'))]",
+        "value": "[reference(concat(parameters('vmNamePrefix'), '2'))]",
         "type": "string"
      }
 

@@ -167,8 +167,8 @@
 
 
     "adStorageName": "[concat(parameters('newStorageAccountNamePrefix'),'adsa')]",
-    "adVmDepoyment": "DeployAdVms",
-    "adVmDepoymentId": "[concat('Microsoft.Resources/deployments/', variables('adVmDepoyment'))]",
+    "adVmDepoyment": "DeployAdVms",    "adVmDepoymentId": "[concat('Microsoft.Resources/deployments/', variables('adVmDepoyment'))]",
+
     "deployPrimaryAdTemplateURL": "[concat(parameters('assetLocation'),'/DeployPrimaryAD.json')]",
     "deploySecondaryAdTemplateURL": "[concat(parameters('assetLocation'),'/DeploySecondaryAD.json')]",
     "deployPrimaryAd": "deployPrimaryAd",
