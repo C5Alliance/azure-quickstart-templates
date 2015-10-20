@@ -152,7 +152,7 @@
   "variables": {
     "windowsDiskSize": 128,
     "adDNicName": "AZWE-ADNic-",
-    "vmContainerName": "AZWEVMContainer"
+    "vmContainerName": "azwevmcontainer"
   },
   "resources": [
     {
