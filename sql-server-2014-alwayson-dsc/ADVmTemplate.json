@@ -8,7 +8,7 @@
       "metadata": {
         "description": "The Prefix of the VM Name"
       },
-      "defaultValue": "AZWE"
+      "defaultValue": "azwe"
     },
     "availabilitySetName": {
       "type": "string",
