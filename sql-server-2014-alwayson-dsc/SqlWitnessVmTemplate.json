@@ -148,7 +148,7 @@
   },
   "variables": {
     "sqlWitnessNicName": "AZNE-SQLWitNic-1",
-    "vmContainerName": "AZNEStorage"
+    "vmContainerName": "aznestorage"
   },
   "resources": [
     {
