@@ -43,7 +43,7 @@
       "metadata": {
         "description": "The name of the Administrator of the new VMs and Domain"
       },
-      "defaultValue": "sqlAdministrator"
+      "defaultValue": "azureadmin"
     },
     "adminPassword": {
       "type": "securestring",

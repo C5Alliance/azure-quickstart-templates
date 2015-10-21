@@ -303,9 +303,9 @@
     "deploySqlAlwaysOn": "deploySqlAlwaysOn",
     "deploySqlAlwaysOnTemplateUrl": "[concat(parameters('assetLocation'),'/DeploySqlAlwaysOn.json')]",
 
-    "sqlClusterVmNamePrefix": "[concat(parameters('vmNamePrefix'),'-SqlC-')]",
-    "sqlCVMName1": "[concat(variables('sqlClusterVmNamePrefix'),'0')]",
-    "sqlCVMName2": "[concat(variables('sqlClusterVmNamePrefix'),'0')]",
+    "sqlClusterVmNamePrefix": "[concat(parameters('vmNamePrefix'),'-TMDSQLP10')]",
+    "sqlCVMName1": "[concat(variables('sqlClusterVmNamePrefix'),'1')]",
+    "sqlCVMName2": "[concat(variables('sqlClusterVmNamePrefix'),'2')]",
 
     "sqlLBName": "AZNE-SQLLB",
 

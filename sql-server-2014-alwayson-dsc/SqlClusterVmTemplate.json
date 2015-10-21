@@ -7,7 +7,7 @@
       "metadata": {
         "description": "The Prefix of the VM Name"
       },
-      "defaultValue": "SqlVM"
+      "defaultValue": "azne"
     },
     "availabilitySetName": {
       "type": "string",
@@ -72,7 +72,7 @@
       "metadata": {
         "description": "The name of the Administrator of the new VMs and Domain"
       },
-      "defaultValue": "sqlAdministrator"
+      "defaultValue": "spsqlsvc"
     },
     "adminPassword": {
       "type": "securestring",
@@ -126,7 +126,7 @@
       "metadata": {
         "description": "The size of the AD VMs Created"
       },
-      "defaultValue": "Standard_D1"
+      "defaultValue": "Standard_D4"
     },
     "nicSubnetUri": {
       "type": "string",
@@ -159,13 +159,13 @@
     }
   },
   "variables": {
-    "publicLBName": "sqlLoadBalancer",
+    "publicLBName": "AZNE-TMDSSQLLB",
     "sqlAOListener":"SQLAlwaysOnEndPointListener",
     "publicIPAddressName": "[concat(parameters('availabilitySetName'), 'PublicIp')]",
     "lbFE": "SqlLBFE",
     "lbBE": "SqlLBBE",
-    "sqlNicName": "SqlMachine-Nic-",
-    "vmContainerName": "vhds",
+    "sqlNicName": "AZNE-SQLNic-",
+    "vmContainerName": "AZNEStorage",
     "sqllbID":"[resourceId('Microsoft.Network/loadBalancers',variables('publicLBName'))]",
     "sqllbFEConfigID": "[concat(variables('sqllbID'),'/frontendIPConfigurations/',variables('lbFE'))]",
     "sqlBEAddressPoolID": "[concat(variables('sqllbID'),'/backendAddressPools/',variables('lbBE'))]",

@@ -107,6 +107,7 @@
     "vmSize": {
       "type": "string",
       "allowedValues": [
+        "Standard_A0",
         "Standard_D1",
         "Standard_DS1",
         "Standard_D2",
@@ -127,7 +128,7 @@
       "metadata": {
         "description": "The size of the AD VMs Created"
       },
-      "defaultValue": "Standard_D1"
+      "defaultValue": "Standard_A0"
     },
 
     "subnetUri": {
@@ -146,8 +147,8 @@
     }
   },
   "variables": {
-    "sqlWitnessNicName": "SqlWitnessMachine-Nic-0",
-    "vmContainerName": "vhds"
+    "sqlWitnessNicName": "AZNE-SQLWitNic-1",
+    "vmContainerName": "AZNEStorage"
   },
   "resources": [
     {

@@ -7,14 +7,14 @@
       "metadata": {
         "description": "The address range of the subnet static IPs are allocated from in the new VNET"
       },
-      "defaultValue": "10.0.0.0/24"
+      "defaultValue": "10.210.1.0/24"
     },
     "vmNamePrefix": {
       "type": "string",
       "metadata": {
         "description": "The Prefix of the VM Name"
       },
-      "defaultValue": "ADVM"
+      "defaultValue": "azne"
     },
     "availabilitySetName": {
       "type": "string",
@@ -80,7 +80,7 @@
       "metadata": {
         "description": "The name of the Administrator of the new VMs and Domain"
       },
-      "defaultValue": "sqlAdministrator"
+      "defaultValue": "azureadmin"
     },
     "adminPassword": {
       "type": "securestring",
@@ -114,6 +114,7 @@
     "vmSize": {
       "type": "string",
       "allowedValues": [
+        "Standard_A2"
         "Standard_D1",
         "Standard_DS1",
         "Standard_D2",
@@ -134,12 +135,12 @@
       "metadata": {
         "description": "The size of the AD VMs Created"
       },
-      "defaultValue": "Standard_DS1"
+      "defaultValue": "Standard_A2"
     }
   },
   "variables": {
     
-    "staticSubnetName": "ADStaticSubnet",
+    "staticSubnetName": "AZNE-CORESubnetP",
     "subnets": [
       {
         "name": "[variables('staticSubnetName')]",
@@ -148,12 +149,12 @@
         }
       }
     ],
-    "virtualNetworkName": "ADVNET",
+    "virtualNetworkName": "AZNEVNET",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
 		"staticSubnetRef": "[concat(variables('vnetID'),'/subnets/',variables('staticSubnetName'))]",
-    "adDNicName": "ADMachine-Nic-",
+    "adDNicName": "AZNE-ADNic-",
 
-    "vmContainerName": "vhds"
+    "vmContainerName": "AZNEStorage"
   },
   "resources": [
     {
