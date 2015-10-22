@@ -159,7 +159,7 @@
     }
   },
   "variables": {
-    "publicLBName": "AZNE-TMDSSQLLB",
+    "publicLBName": "AZNE-TMDSQLLB",
     "sqlAOListener":"SQLAlwaysOnEndPointListener",
     "publicIPAddressName": "[concat(parameters('availabilitySetName'), 'PublicIp')]",
     "lbFE": "SqlLBFE",
