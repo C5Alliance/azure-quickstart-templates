@@ -218,7 +218,7 @@
       }
     },
     {
-      "name": "[concat(variables('adDNicName'), copyindex(1))]",
+      "name": "[concat(variables('adDNicName'), copyindex(0))]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "dependsOn": [
