@@ -159,7 +159,7 @@
     "publicBEAddressPoolID": "[concat(variables('publiclbID'),'/backendAddressPools/',variables('lbBE'))]",
     "adRDPNATRuleID": "[concat(variables('publiclbID'),'/inboundNatRules/',variables('rpdNAT'))]",
     "adDNicName": "AZNE-ADNic-",
-    "vmContainerName": "aznevmcontainer"
+    "vmContainerName": "vhds"
   },
   "resources": [
     {

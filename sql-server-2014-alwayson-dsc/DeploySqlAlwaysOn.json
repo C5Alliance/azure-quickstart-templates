@@ -208,7 +208,7 @@
 						"domainName": "[parameters('domainName')]",
 						"clusterName":"[variables('clusterName')]",
 						"sharePath":"[concat('\\\\',parameters('sqlwVMName'),'\\',parameters('sharePath'))]",
-						"nodes":["[concat(parameters('sqlVMNamePrefix'),'0')]","[concat(parameters('sqlVMNamePrefix'),'1')]"],
+						"nodes":["[concat(parameters('sqlVMNamePrefix'),'1')]","[concat(parameters('sqlVMNamePrefix'),'1')]"],
 						"sqlAlwaysOnEndpointName":"[parameters('sqlAlwaysOnEndpointName')]",
 						"sqlAlwaysOnAvailabilityGroupName":"[parameters('sqlAlwaysOnAvailabilityGroupName')]",
 						"sqlAlwaysOnAvailabilityGroupListenerName":"[parameters('sqlAlwaysOnAvailabilityGroupListenerName')]",
@@ -216,7 +216,7 @@
 						"lbName":"[parameters('sqlLBName')]",
 						"lbAddress":"[parameters('sqlLBIPAddress')]",
 						"primaryReplica":"[concat(parameters('sqlVMNamePrefix'),'1')]",
-						"secondaryReplica":"[concat(parameters('sqlVMNamePrefix'),'0')]",
+						"secondaryReplica":"[concat(parameters('sqlVMNamePrefix'),'1')]",
 						"databaseNames":"[parameters('databaseNames')]",
 						"dnsServerName":"[parameters('dnsServerName')]",
 						"adminCreds":{
