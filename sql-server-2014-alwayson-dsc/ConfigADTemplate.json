@@ -258,7 +258,7 @@
     {
 			"apiVersion": "2015-05-01-preview",
 			"type": "Microsoft.Compute/virtualMachines",
-			"name": "[concat(parameters('vmNamePrefix'), copyindex(1))]",
+			"name": "[concat(parameters('vmNamePrefix'), copyindex())]",
 			"location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts',parameters('storageAccountName'))]",
@@ -278,7 +278,7 @@
 					"id": "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]"
 				},
 				"osProfile": {
-					"computername": "[concat(parameters('vmNamePrefix'), copyindex(1))]",
+					"computername": "[concat(parameters('vmNamePrefix'), copyindex())]",
 					"adminUsername": "[parameters('adminUsername')]",
 					"adminPassword": "[parameters('adminPassword')]"
 				},
@@ -292,7 +292,7 @@
 					"osDisk": {
 						"name": "osdisk",
 						"vhd": {
-							"uri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmContainerName'),'/', parameters('vmNamePrefix'), copyindex(1),'-osdisk.vhd')]"
+							"uri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmContainerName'),'/', parameters('vmNamePrefix'), copyindex(),'-osdisk.vhd')]"
 						},
 						"caching": "ReadWrite",
 						"createOption": "FromImage"
@@ -300,9 +300,9 @@
 					"dataDisks": [
 						{
 							"vhd": {
-								"uri":"[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmContainerName'),'/', parameters('vmNamePrefix'), copyindex(1),'data-1.vhd')]"
+								"uri":"[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmContainerName'),'/', parameters('vmNamePrefix'), copyindex(),'data-1.vhd')]"
 								},
-							"name":"[concat(parameters('vmNamePrefix'), copyindex(1),'-data-disk1')]",
+							"name":"[concat(parameters('vmNamePrefix'), copyindex(),'-data-disk1')]",
 							"createOption": "empty",
 							"caching" : "None",
 							"diskSizeGB": "[variables('windowsDiskSize')]",

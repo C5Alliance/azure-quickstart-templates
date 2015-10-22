@@ -292,7 +292,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts',parameters('storageAccount'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('adDNicName'), copyindex()))]",
+        "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('adDNicName'), copyindex(1)))]",
         "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]",
         "[resourceId('Microsoft.Network/loadBalancers',variables('publicLBName'))]"
       ],
@@ -343,7 +343,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('adDNicName'), copyindex()))]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('adDNicName'), copyindex(1)))]"
             }
           ]
         }
