@@ -8,11 +8,11 @@
         "redisCacheLocation": {
             "value": "West US"
         },
-        "existingDiagnosticsStorageAccountName": {
-            "value": "ExistingStorageAccount"
+        "redisShardCount": {
+            "value": 1
         },
-        "enableNonSslPort": { 
-            "value": true
+        "existingdiagnosticsStorageAccountName": {
+            "value": "ExistingStorageAccount"
         }
     }
 }

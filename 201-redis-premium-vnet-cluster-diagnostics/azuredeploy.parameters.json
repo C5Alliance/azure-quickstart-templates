@@ -8,11 +8,20 @@
         "redisCacheLocation": {
             "value": "West US"
         },
+        "redisShardCount": {
+            "value": 1
+        },
         "existingDiagnosticsStorageAccountName": {
             "value": "ExistingStorageAccount"
         },
-        "enableNonSslPort": { 
-            "value": true
+        "virtualNetwork": {
+            "value": "ExistingVNetName"
+        },
+        "subnet": {
+            "value": "ExistingSubnet"
+        },
+        "redisCacheStaticIP": {
+            "value": "StaticIPAddress"
         }
     }
 }

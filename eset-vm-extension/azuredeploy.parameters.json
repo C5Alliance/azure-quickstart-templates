@@ -6,22 +6,16 @@
       "value": "#####"
     },
     "adminUsername": {
-      "value": "myadminname"
+      "value": "userName"
     },
     "adminPassword": {
-      "value": "Password123"
+      "value": "Passwrd1"
     },
     "dnsNameForPublicIP": {
       "value": "#####"
     },
-    "departmentName": {
-      "value": "myDepartment"
-    },
-    "applicationName": {
-      "value": "myApp"
-    },
-    "createdBy": {
-      "value": "myName"
+    "location": {
+      "value": "West US"
     }
   }
 }

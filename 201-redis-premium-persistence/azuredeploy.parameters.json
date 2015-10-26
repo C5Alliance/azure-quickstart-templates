@@ -8,11 +8,11 @@
         "redisCacheLocation": {
             "value": "West US"
         },
+        "rdbBackupStorageConnectionString": {
+            "value": "connectionstring"
+        },
         "existingDiagnosticsStorageAccountName": {
             "value": "ExistingStorageAccount"
-        },
-        "enableNonSslPort": { 
-            "value": true
         }
     }
 }
