@@ -67,7 +67,7 @@
     "dataDisk1VhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
   },
   "resources": [
-    {
+    /*{
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[parameters('newStorageAccountName')]",
       "apiVersion": "2015-05-01-preview",
@@ -75,7 +75,7 @@
       "properties": {
         "accountType": "[variables('storageAccountType')]"
       }
-    },
+    },*/
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -87,7 +87,7 @@
           "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
         }
       }
-    },
+    },/*
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/virtualNetworks",
@@ -108,7 +108,7 @@
           }
         ]
       }
-    },
+    },*/
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/networkInterfaces",
