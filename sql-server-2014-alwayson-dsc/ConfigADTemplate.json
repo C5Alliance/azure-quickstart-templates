@@ -154,7 +154,7 @@
 		"staticSubnetRef": "[concat(variables('vnetID'),'/subnets/',variables('staticSubnetName'))]",
     "adDNicName": "AZNE-ADNic-",
 
-    "vmContainerName": "aznestorage"
+    "vmContainerName": "vhds"
   },
   "resources": [
     {

@@ -14,7 +14,7 @@
       "metadata": {
         "description": "The Available Set Name"
       },
-      "defaultValue": "SqlAvailableSet"
+      "defaultValue": "AZNESQLAvailableSet"
     },
 
     "windowsImagePublisher": {
@@ -159,13 +159,13 @@
     }
   },
   "variables": {
-    "publicLBName": "AZNE-TMDSSQLLB",
+    "publicLBName": "AZNE-TMDSQLLB",
     "sqlAOListener":"SQLAlwaysOnEndPointListener",
     "publicIPAddressName": "[concat(parameters('availabilitySetName'), 'PublicIp')]",
     "lbFE": "SqlLBFE",
     "lbBE": "SqlLBBE",
     "sqlNicName": "AZNE-SQLNic-",
-    "vmContainerName": "aznestorage",
+    "vmContainerName": "vhds",
     "sqllbID":"[resourceId('Microsoft.Network/loadBalancers',variables('publicLBName'))]",
     "sqllbFEConfigID": "[concat(variables('sqllbID'),'/frontendIPConfigurations/',variables('lbFE'))]",
     "sqlBEAddressPoolID": "[concat(variables('sqllbID'),'/backendAddressPools/',variables('lbBE'))]",

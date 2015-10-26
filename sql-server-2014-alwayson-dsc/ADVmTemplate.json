@@ -159,7 +159,7 @@
     "publicBEAddressPoolID": "[concat(variables('publiclbID'),'/backendAddressPools/',variables('lbBE'))]",
     "adRDPNATRuleID": "[concat(variables('publiclbID'),'/inboundNatRules/',variables('rpdNAT'))]",
     "adDNicName": "AZNE-ADNic-",
-    "vmContainerName": "aznevmcontainer"
+    "vmContainerName": "vhds"
   },
   "resources": [
     {
@@ -230,7 +230,7 @@
       }
     },
     {
-      "name": "[concat(variables('adDNicName'), '0')]",
+      "name": "[concat(variables('adDNicName'), '1')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -263,7 +263,7 @@
       }
     },
     {
-      "name": "[concat(variables('adDNicName'), 1)]",
+      "name": "[concat(variables('adDNicName'), '2')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "dependsOn": [

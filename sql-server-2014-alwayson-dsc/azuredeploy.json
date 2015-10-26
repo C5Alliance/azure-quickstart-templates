@@ -78,7 +78,7 @@
         "Standard_DS14"
       ],
       "metadata": {
-        "description": "The size of the AD VMs Created"
+        "description": "The size of the SQL VMs Created"
       },
       "defaultValue": "Standard_D4"
     },
@@ -105,7 +105,7 @@
         "Standard_DS14"
       ],
       "metadata": {
-        "description": "The size of the AD VMs Created"
+        "description": "The size of the SQL Witness VM Created"
       },
       "defaultValue": "Standard_A0"
     },
