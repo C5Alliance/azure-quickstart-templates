@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-      "value": "West US"
+      "value": "North Europe"
     },
     "addressPrefix": {
-      "value": "10.0.0.0/16"
+      "value": "10.210.0.0/16"
     },
     "subnetPrefix": {
-      "value": "10.0.0.0/24"
+      "value": "10.210.10.0/24"
     }
   }
 }
